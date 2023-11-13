@@ -1,5 +1,5 @@
 {
-  "name": "gymas",
+  "name": "welp",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "server": "node-env-run server --exec nodemon | pino-colada"
+    "server": "node-env-run server --exec nodemon"
   },
   "proxy": "http://localhost:3001",
   "dependencies": {
