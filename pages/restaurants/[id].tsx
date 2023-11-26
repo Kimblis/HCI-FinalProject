@@ -56,8 +56,6 @@ const Restaurant: NextPage = () => {
             </Box>
           </Box>
         </GridItem>
-       
-       
       </Grid>
     </Box>
   );
