@@ -8,6 +8,7 @@ import DeleteRestaurantModal from './DeleteRestaurantModal';
 const RestaurantComponent = ({ restaurant }: { restaurant: any }) => {
   const router = useRouter();
   const { currentUser } = useAuth();
+  console.log(restaurant.price)
 
   return currentUser && restaurant ? (
     <Box maxW="md" borderWidth="1px" borderRadius="lg" overflow="hidden" m={2}>
@@ -16,7 +17,7 @@ const RestaurantComponent = ({ restaurant }: { restaurant: any }) => {
           {restaurant.name}
         </Box>
         <Box>{restaurant.description}</Box>
-        <Box>Price: {restaurant.price.toString()}$</Box>
+        <Box>{`Price: ${[...Array(restaurant.price)].map(_ => '$').join()}`}</Box>
       </Box>
       {currentUser?.id && (
         <>

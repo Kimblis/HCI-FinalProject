@@ -4,34 +4,60 @@ import { useRouter } from 'next/router';
 
 import { useAuth } from '@/context/AuthContext';
 import { protectRoute } from '@/utils';
-import { Spinner } from '@chakra-ui/react';
+import { SimpleGrid, Spinner } from '@chakra-ui/react';
+import { collection, getDocs, query } from 'firebase/firestore';
+import { firebaseDb } from '@/firebase';
+import RestaurantComponent from '@/components/restaurant/Restaurant';
+import CreateRestaurantModal from '@/components/restaurant/CreateRestaurantModal';
 
 const Home: NextPage = () => {
   const { currentUser } = useAuth();
+  const columns = [1, 1, 2, 2, 3, 3];
+  const [isLoading, setIsLoading] = useState(true);
+  const [restaurants, setRestaurants] = useState<any[]>([])
   const router = useRouter();
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (!currentUser) {
-      router.replace('/login');
-      return;
-    }
-  }, [currentUser, router]);
+   useEffect(() => {
+    const getRestaurants = async () => {
+      const restaurantsCollections = await getDocs(query(collection(firebaseDb, 'restaurants')));
+      const restaurantDocs = restaurantsCollections.docs;
+      await Promise.all(
+        restaurantDocs.map(async (restaurantDoc) => {
+          const restaurantData = restaurantDoc.data() as any;
+          setRestaurants((currentValues) =>
+            currentValues.some((currVal) => currVal.id === restaurantDoc.id)
+              ? currentValues
+              : [
+                  ...currentValues,
+                  {
+                    ...restaurantData,
+                    id: restaurantDoc.id,
+                  },
+                ]
+          );
+        })
+      );
+      setIsLoading(false);
+    };
 
-  useEffect(() => {
-    protectRoute(currentUser as any, router);
-    setLoading(false);
-  }, [currentUser, router]);
+    getRestaurants();
+  }, []);
 
-  if (loading) {
-    return <Spinner />;
-  }
 
   if (!currentUser) {
     return <div>Guest</div>;
   }
 
-  return <div>Hello world</div>;
+  return <div>{!isLoading ? (
+        <SimpleGrid columns={columns} templateRows={'masonry'}>
+          {restaurants.map((restaurant) => (
+            <RestaurantComponent key={restaurant.id} restaurant={restaurant}></RestaurantComponent>
+          ))}
+          {currentUser?.id && <CreateRestaurantModal />}
+        </SimpleGrid>
+      ) : (
+        <Spinner />
+      )}</div>;
 };
 
 export async function getServerSideProps() {
