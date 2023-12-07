@@ -56,7 +56,7 @@ const MobileNavigation = ({ onOpen, ...rest }: MobileProps) => {
       />
 
       <Text display={{ base: 'flex', md: 'none' }} fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-        GYM -MINUS-
+        Making the grade
       </Text>
       <HStack spacing={{ base: '0', md: '6' }}>
         <Flex alignItems={'center'}>

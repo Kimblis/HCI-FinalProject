@@ -2,8 +2,7 @@ import React from 'react';
 import { Box, CloseButton, Flex, useColorModeValue, Text, BoxProps } from '@chakra-ui/react';
 
 import { NavItem } from './NavItem';
-import { HomeOutlined, TeamOutlined, ThunderboltOutlined } from '@ant-design/icons';
-import { useAuth } from '@/context/AuthContext';
+import { HomeOutlined } from '@ant-design/icons';
 
 interface LinkItemProps {
   name: string;
@@ -18,7 +17,6 @@ interface SidebarProps extends BoxProps {
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
   const LinkItems: Array<LinkItemProps> = [
     { name: 'Home', link: '/', icon: HomeOutlined },
-    { name: 'Restaurants', link: '/restaurants', icon: ThunderboltOutlined },
   ];
 
 

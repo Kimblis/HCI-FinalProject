@@ -15,15 +15,11 @@ import {
   Alert,
   AlertIcon,
   Divider,
-  Show,
-  IconButton,
 } from '@chakra-ui/react';
 
 import { useAuth } from '@/context/AuthContext';
 import TextField from '@/components/form/TextField';
 
-import AuthPageLogo from './AuthenticationPageLogo';
-import { FacebookOutlined } from '@ant-design/icons';
 
 const LoginHeader = () => {
   return (
@@ -96,11 +92,6 @@ const LoginForm = () => {
 };
 
 const LoginFooter = () => {
-  const { loginWithFacebook } = useAuth();
-  const handleFacebookLogin = async () => {
-    await loginWithFacebook();
-  };
-
   return (
     <Flex w="full" direction="column">
       <Box textAlign="start" w="full">
@@ -118,16 +109,6 @@ const LoginFooter = () => {
           </Link>
         </Text>
       </Box>
-      <Box textAlign="end" w="full" display="flex" justifyContent="end" mt={2}>
-        <Text mt={1}>Sign in with facebook</Text>
-        <IconButton
-          onClick={() => handleFacebookLogin()}
-          aria-label="Sign up with facebook"
-          icon={<FacebookOutlined />}
-          colorScheme="blue"
-          ml={2}
-        />
-      </Box>
     </Flex>
   );
 };
@@ -135,10 +116,6 @@ const LoginFooter = () => {
 const Login = () => {
   return (
     <Flex h={{ base: 'auto', md: '100vh' }} w="full" py={[0, 10, 20]} direction={{ base: 'column-reverse', md: 'row' }}>
-      <Show above="md">
-        <AuthPageLogo />
-      </Show>
-
       <VStack w="full" h="full" p={8} spacing={8} alignItems="center" justify="center" border={'1px'}>
         <LoginHeader />
         <LoginForm />

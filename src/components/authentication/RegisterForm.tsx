@@ -22,7 +22,6 @@ import { useAuth } from '@/context/AuthContext'
 import TextField from '@/components/form/TextField'
 import { firebaseDb } from '@/firebase'
 
-import AuthPageLogo from './AuthenticationPageLogo'
 
 const RegisterHeader = () => {
   return (
@@ -153,7 +152,7 @@ const RegisterForm = () => {
 
 const RegisterFooter = () => {
   return (
-    <Box textAlign='end' w='full'>
+    <Box textAlign='center' w='full'>
       <Text>
         Already have an account?{' '}
         <Link color={'teal.500'} href='/login'>
@@ -172,14 +171,12 @@ const Register = () => {
       py={[0, 10, 20]}
       direction={{ base: 'column-reverse', md: 'row' }}
     >
-      <AuthPageLogo />
-
       <VStack
         w='full'
         h='full'
         p={10}
         spacing={10}
-        alignItems='flex-start'
+        alignItems='center'
         justify='center'
         border={'1px'}
       >
