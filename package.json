@@ -22,7 +22,7 @@
     "framer-motion": "^10.16.4",
     "install": "^0.13.0",
     "moment": "^2.29.4",
-    "next": "^14.0.2",
+    "next": "^13.0.2",
     "node-cron": "^3.0.2",
     "npm": "^8.7.0",
     "react": "^18.2.0",
@@ -37,7 +37,7 @@
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "eslint": "8.53.0",
-    "eslint-config-next": "14.0.2",
+    "eslint-config-next": "13.0.2",
     "node-env-run": "^4.0.2",
     "nodemon": "^3.0.1",
     "typescript": "5.2.2"
