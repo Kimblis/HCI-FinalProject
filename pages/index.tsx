@@ -60,7 +60,7 @@ const Home: NextPage = () => {
       )}</div>;
 };
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   return {
     props: {
       protected: true,

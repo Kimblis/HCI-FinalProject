@@ -8,7 +8,7 @@ const Register: NextPage = () => (
   </>
 )
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   return {
     props: {
       protected: false,
