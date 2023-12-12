@@ -20,6 +20,7 @@ import { useAuth } from '@/context/AuthContext';
 import TextField from '@/components/form/TextField';
 
 import AuthPageLogo from './AuthenticationPageLogo';
+import PrefixedLink from '../PrefixedLink';
 
 const ForgotPasswordHeader = () => {
   return (
@@ -102,17 +103,17 @@ const ForgotPasswordFooter = () => {
       <Box textAlign="start" w="full">
         <Text>
           Do not have an account yet?
-          <Link color={'teal.500'} pl={2} href={`${process.env.PROJECT_PREFIX ? `${process.env.PROJECT_PREFIX}/register` : '/register'}`}>
+          <PrefixedLink href="/register">
             sign up
-          </Link>
+          </PrefixedLink>
         </Text>
       </Box>
       <Box textAlign="end" w="full">
         <Text>
           Remembered your password?
-          <Link color={'teal.500'} pl={2} href={`${process.env.PROJECT_PREFIX ? `${process.env.PROJECT_PREFIX}/login` : '/login'}`}>
+          <PrefixedLink href="/login" >
             sign in
-          </Link>
+          </PrefixedLink>
         </Text>
       </Box>
     </Flex>

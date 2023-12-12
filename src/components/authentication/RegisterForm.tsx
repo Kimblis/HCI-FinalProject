@@ -6,7 +6,6 @@ import { setDoc, doc } from '@firebase/firestore'
 import {
   Box,
   Button,
-  Link,
   Heading,
   Text,
   Flex,
@@ -21,6 +20,7 @@ import {
 import { useAuth } from '@/context/AuthContext'
 import TextField from '@/components/form/TextField'
 import { firebaseDb } from '@/firebase'
+import PrefixedLink from '../PrefixedLink'
 
 
 const RegisterHeader = () => {
@@ -155,9 +155,9 @@ const RegisterFooter = () => {
     <Box textAlign='center' w='full'>
       <Text>
         Already have an account?{' '}
-        <Link color={'teal.500'} href={`${process.env.PROJECT_PREFIX ? `${process.env.PROJECT_PREFIX}/login` : '/login'}`}>
+        <PrefixedLink href="/login">
           sign in
-        </Link>
+        </PrefixedLink>
       </Text>
     </Box>
   )

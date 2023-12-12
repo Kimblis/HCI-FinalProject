@@ -19,6 +19,7 @@ import {
 
 import { useAuth } from '@/context/AuthContext';
 import TextField from '@/components/form/TextField';
+import PrefixedLink from '../PrefixedLink';
 
 
 const LoginHeader = () => {
@@ -95,18 +96,18 @@ const LoginFooter = () => {
   return (
     <Flex w="full" direction="column">
       <Box textAlign="start" w="full">
-        <Link color={'teal.500'} href={`${process.env.PROJECT_PREFIX ? `${process.env.PROJECT_PREFIX}/forgot-password` : '/forgot-password'}`}>
+        <PrefixedLink href="/forgot-password">
           Forgot your password?
-        </Link>
+        </PrefixedLink>
       </Box>
       <Divider py={2} />
       <Box textAlign="end" w="full">
         <Divider />
         <Text>
           Do not have an account yet?{' '}
-          <Link color={'teal.500'} href={`${process.env.PROJECT_PREFIX ? `${process.env.PROJECT_PREFIX}/register` : '/register'}`}>
+          <PrefixedLink href="/register">
             sign up
-          </Link>
+          </PrefixedLink>
         </Text>
       </Box>
     </Flex>
