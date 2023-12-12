@@ -95,7 +95,7 @@ const LoginFooter = () => {
   return (
     <Flex w="full" direction="column">
       <Box textAlign="start" w="full">
-        <Link color={'teal.500'} href="/forgot-password">
+        <Link color={'teal.500'} href={`${process.env.PROJECT_PREFIX ? `${process.env.PROJECT_PREFIX}/forgot-password` : '/forgot-password'}`}>
           Forgot your password?
         </Link>
       </Box>
@@ -104,7 +104,7 @@ const LoginFooter = () => {
         <Divider />
         <Text>
           Do not have an account yet?{' '}
-          <Link color={'teal.500'} href="/register">
+          <Link color={'teal.500'} href={`${process.env.PROJECT_PREFIX ? `${process.env.PROJECT_PREFIX}/register` : '/register'}`}>
             sign up
           </Link>
         </Text>

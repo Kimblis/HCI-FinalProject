@@ -102,7 +102,7 @@ const ForgotPasswordFooter = () => {
       <Box textAlign="start" w="full">
         <Text>
           Do not have an account yet?
-          <Link color={'teal.500'} pl={2} href="/register">
+          <Link color={'teal.500'} pl={2} href={`${process.env.PROJECT_PREFIX ? `${process.env.PROJECT_PREFIX}/register` : '/register'}`}>
             sign up
           </Link>
         </Text>
@@ -110,7 +110,7 @@ const ForgotPasswordFooter = () => {
       <Box textAlign="end" w="full">
         <Text>
           Remembered your password?
-          <Link color={'teal.500'} pl={2} href="/login">
+          <Link color={'teal.500'} pl={2} href={`${process.env.PROJECT_PREFIX ? `${process.env.PROJECT_PREFIX}/login` : '/login'}`}>
             sign in
           </Link>
         </Text>
