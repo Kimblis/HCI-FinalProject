@@ -1,7 +1,7 @@
 import React from 'react';
-import { Flex, Icon, Link, FlexProps } from '@chakra-ui/react';
+import { Flex, Icon, FlexProps } from '@chakra-ui/react';
 import { ReactText } from 'react';
-import NextLink from 'next/link';
+import Link from 'next/link';
 
 interface NavItemProps extends FlexProps {
   icon: any;
@@ -12,7 +12,7 @@ interface NavItemProps extends FlexProps {
 export const NavItem = ({ icon, children, link, ...rest }: NavItemProps) => {
   const navPath = `${process.env.PROJECT_PREFIX ? `${process.env.PROJECT_PREFIX}${link}` : link}`
   return (
-    <Link as={NextLink} href={navPath} style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
+    <Link href={link} as={`${process.env.PROJECT_PREFIX}${link}`} style={{ textDecoration: 'none' }} >
       <Flex
         align="center"
         p="4"
