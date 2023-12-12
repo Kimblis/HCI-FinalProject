@@ -38,7 +38,7 @@ const Restaurant: NextPage = () => {
               </Heading>
               <Divider orientation="horizontal" mb={3} />
               <Box>
-                {restaurant.price && <Text size="sm" pt="1">{`Price: ${[...Array(restaurant.price)].map(_ => '$').join()}`}</Text>}
+                {restaurant.price && <Text size="sm" pt="1">{`Price: ${[...Array(restaurant.price)].map(_ => '$').join(',')}`}</Text>}
                 <Text fontSize="sm" pt="2">{restaurant?.description || ''}</Text>
               </Box>
               <HStack justify="center" my={5}> <Heading size="xl" textAlign="center">
