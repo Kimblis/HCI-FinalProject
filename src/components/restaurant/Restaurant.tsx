@@ -18,7 +18,7 @@ const RestaurantComponent = ({ restaurant }: { restaurant: any }) => {
           {restaurant.name}
         </Box>
         <Box>{restaurant.description}</Box>
-        <Box>{`Price: ${[...Array(restaurant.price)].map(_ => '$').join()}`}</Box>
+        <Box>{`Price: ${[...Array(restaurant.price)].map(_ => '$').join(',')}`}</Box>
         {accRating !== null && <Box><Star rating={accRating / restaurant.reviews.length}/></Box>}
         
       </Box>
