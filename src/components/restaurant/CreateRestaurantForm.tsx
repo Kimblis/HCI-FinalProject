@@ -25,7 +25,7 @@ const CreateRestaurantForm = ({ closeHandler }: { closeHandler: any }) => {
       validationSchema={yup.object({
         name: yup.string().required(),
         description: yup.string().optional(),
-        price: yup.number().required(),
+        price: yup.number().min(1).max(5).required(),
     
       })}
       onSubmit={async (restaurantData) => {
@@ -49,7 +49,7 @@ const CreateRestaurantForm = ({ closeHandler }: { closeHandler: any }) => {
               <TextField name="name" label="Name" placeholder="Enter restaurant name" isRequired={true} type="string" />
             </GridItem>
             <GridItem colSpan={colSpan}>
-              <TextField name="price" label="Price" placeholder="Enter price range" isRequired={true} type="number" />
+              <TextField name="price" label="Price (1-5)" placeholder="Enter price range (1-5)" isRequired={true} type="number" />
             </GridItem>
             <GridItem colSpan={2}>
               <TextAreaField
