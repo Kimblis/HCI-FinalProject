@@ -155,7 +155,7 @@ const RegisterFooter = () => {
     <Box textAlign='center' w='full'>
       <Text>
         Already have an account?{' '}
-        <Link color={'teal.500'} href='/login'>
+        <Link color={'teal.500'} href={`${process.env.PROJECT_PREFIX ? `${process.env.PROJECT_PREFIX}/login` : '/login'}`}>
           sign in
         </Link>
       </Text>

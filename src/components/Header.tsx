@@ -13,10 +13,6 @@ function Header() {
           <Box>
             <ButtonLink link="/" name={<HomeOutlined />} />
           </Box>
-          <Box>
-            <ButtonLink link={`/trainers`} name={<TeamOutlined />} />
-            <ButtonLink link={`/users/${currentUser?.id}`} name={<UserOutlined />} />
-          </Box>
         </Flex>
       ) : null}
     </Flex>

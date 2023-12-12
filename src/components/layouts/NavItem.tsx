@@ -10,8 +10,9 @@ interface NavItemProps extends FlexProps {
 }
 
 export const NavItem = ({ icon, children, link, ...rest }: NavItemProps) => {
+  const navPath = `${process.env.PROJECT_PREFIX ? `${process.env.PROJECT_PREFIX}${link}` : link}`
   return (
-    <Link as={NextLink} href={link} style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
+    <Link as={NextLink} href={navPath} style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
       <Flex
         align="center"
         p="4"
