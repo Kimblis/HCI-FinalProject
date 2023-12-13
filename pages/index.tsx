@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 import { useAuth } from '@/context/AuthContext';
-import { protectRoute } from '@/utils';
 import { SimpleGrid, Spinner } from '@chakra-ui/react';
 import { collection, getDocs, query } from 'firebase/firestore';
 import { firebaseDb } from '@/firebase';
@@ -15,7 +14,6 @@ const Home: NextPage = () => {
   const columns = [1, 1, 2, 2, 3, 3];
   const [isLoading, setIsLoading] = useState(true);
   const [restaurants, setRestaurants] = useState<any[]>([])
-  const router = useRouter();
 
    useEffect(() => {
     const getRestaurants = async () => {
@@ -45,7 +43,7 @@ const Home: NextPage = () => {
 
 
   if (!currentUser) {
-    return <div>Guest</div>;
+    return null
   }
 
   return <div>{!isLoading ? (
